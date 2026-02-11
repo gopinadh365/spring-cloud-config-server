@@ -1,4 +1,11 @@
 management:
+  tracing:
+    sampling:
+      probability: 1.0   # dev only
+
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
   info:
     env:
       enabled: true
@@ -9,4 +16,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, refresh, env, beans, loggers, metrics, Prometheus, info
+        include: health, refresh, env, beans, loggers, metrics, prometheus, info
+
+logging:
+  pattern:
+    level: "%5p [traceId=%X{traceId} spanId=%X{spanId}]"
