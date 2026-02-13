@@ -12,7 +12,7 @@ spring:
               predicates:
                 - Path=/api/assets/**
               filters:
-            #                - StripPrefix=2
+                - StripPrefix=2
 
             - id: asset-service-web
               uri: ${ASSET_SERVICE_URL:http://localhost:8081}
@@ -26,7 +26,7 @@ spring:
               predicates:
                 - Path=/api/telemetry/**
               filters:
-            #                - StripPrefix=2
+                - StripPrefix=2
 
             - id: telemetry-service-web
               uri: ${TELEMETRY_SERVICE_URL:http://localhost:8082}
